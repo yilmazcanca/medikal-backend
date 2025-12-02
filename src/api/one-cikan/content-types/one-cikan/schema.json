@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "one_cikans",
+  "info": {
+    "singularName": "one-cikan",
+    "pluralName": "one-cikans",
+    "displayName": "OneCikan"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Baslik": {
+      "type": "string"
+    },
+    "Aciklama": {
+      "type": "blocks"
+    },
+    "Gorsel": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ButonLink": {
+      "type": "string"
+    }
+  }
+}

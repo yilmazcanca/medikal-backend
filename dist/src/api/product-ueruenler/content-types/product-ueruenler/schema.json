@@ -1,0 +1,56 @@
+{
+    "kind": "collectionType",
+    "collectionName": "product_ueruenlers",
+    "info": {
+        "singularName": "product-ueruenler",
+        "pluralName": "product-ueruenlers",
+        "displayName": "Product (Ürünler)"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "isim": {
+            "type": "string"
+        },
+        "UrunKodu": {
+            "type": "string"
+        },
+        "Aciklama": {
+            "type": "blocks"
+        },
+        "StokSayisi": {
+            "type": "integer"
+        },
+        "KritikStokSeviyesi": {
+            "type": "integer"
+        },
+        "UrunFotografi": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "Dosya": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "kategori": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::kategori.kategori",
+            "mappedBy": "product_ueruenler"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mesajs",
+  "info": {
+    "singularName": "mesaj",
+    "pluralName": "mesajs",
+    "displayName": "Mesaj"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AdSoyad": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Konu": {
+      "type": "string"
+    },
+    "Icerik": {
+      "type": "text"
+    }
+  }
+}
