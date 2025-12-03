@@ -572,6 +572,8 @@ export interface ApiProductUeruenlerProductUeruenler
   };
   attributes: {
     Aciklama: Schema.Attribute.Blocks;
+    anasayfadagoster: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -594,6 +596,35 @@ export interface ApiProductUeruenlerProductUeruenler
       'images' | 'files' | 'videos' | 'audios'
     >;
     UrunKodu: Schema.Attribute.String;
+  };
+}
+
+export interface ApiSliderSlider extends Struct.CollectionTypeSchema {
+  collectionName: 'sliders';
+  info: {
+    displayName: 'Slider';
+    pluralName: 'sliders';
+    singularName: 'slider';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Gorsel: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::slider.slider'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Sira: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1112,6 +1143,7 @@ declare module '@strapi/strapi' {
       'api::mesaj.mesaj': ApiMesajMesaj;
       'api::one-cikan.one-cikan': ApiOneCikanOneCikan;
       'api::product-ueruenler.product-ueruenler': ApiProductUeruenlerProductUeruenler;
+      'api::slider.slider': ApiSliderSlider;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -51,6 +51,10 @@
             "relation": "oneToMany",
             "target": "api::kategori.kategori",
             "mappedBy": "product_ueruenler"
+        },
+        "anasayfadagoster": {
+            "type": "boolean",
+            "default": false
         }
     }
 }

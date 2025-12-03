@@ -1,0 +1,28 @@
+{
+    "kind": "collectionType",
+    "collectionName": "sliders",
+    "info": {
+        "singularName": "slider",
+        "pluralName": "sliders",
+        "displayName": "Slider"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Gorsel": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "Sira": {
+            "type": "integer"
+        }
+    }
+}
