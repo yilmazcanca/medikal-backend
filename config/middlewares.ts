@@ -13,7 +13,7 @@ export default [
             'data:',
             'blob:',
             'dl.airtable.com',
-            'res.cloudinary.com', // Cloudinary'ye izin veriyoruz
+            'res.cloudinary.com', 
           ],
           'media-src': [
             "'self'",
@@ -30,7 +30,6 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      enabled: true,
       headers: '*',
       origin: ['*'] 
     }
