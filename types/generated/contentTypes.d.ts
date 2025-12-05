@@ -588,6 +588,10 @@ export interface ApiProductUeruenlerProductUeruenler
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    stock_logs: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::stock-log.stock-log'
+    >;
     StokSayisi: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -622,6 +626,41 @@ export interface ApiSliderSlider extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Sira: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStockLogStockLog extends Struct.CollectionTypeSchema {
+  collectionName: 'stock_logs';
+  info: {
+    displayName: 'Stock Log';
+    pluralName: 'stock-logs';
+    singularName: 'stock-log';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Aciklama: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    IslemTuru: Schema.Attribute.Enumeration<['Giris', 'Cikis', 'Iade']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::stock-log.stock-log'
+    > &
+      Schema.Attribute.Private;
+    Miktar: Schema.Attribute.Integer;
+    product_ueruenler: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::product-ueruenler.product-ueruenler'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1144,6 +1183,7 @@ declare module '@strapi/strapi' {
       'api::one-cikan.one-cikan': ApiOneCikanOneCikan;
       'api::product-ueruenler.product-ueruenler': ApiProductUeruenlerProductUeruenler;
       'api::slider.slider': ApiSliderSlider;
+      'api::stock-log.stock-log': ApiStockLogStockLog;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -55,6 +55,12 @@
         "anasayfadagoster": {
             "type": "boolean",
             "default": false
+        },
+        "stock_logs": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::stock-log.stock-log",
+            "mappedBy": "product_ueruenler"
         }
     }
 }
