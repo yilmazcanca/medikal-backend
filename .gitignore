@@ -1,2 +1,15 @@
-node_modules/ 
-.env 
+# Dependencies (Modüller)
+node_modules/
+
+# API Keys (Güvenlik)
+.env
+
+# Strapi Cache & Build (Gereksiz dosyalar)
+.cache/
+build/
+
+# Local Database (Kritik! Eski SQLite veritabanının gitmesini engeller)
+.tmp/
+
+# Local Uploads (Cloudinary kullandığımız için bunları göndermiyoruz)
+public/uploads/
