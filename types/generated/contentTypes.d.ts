@@ -561,7 +561,7 @@ export interface ApiOneCikanOneCikan extends Struct.SingleTypeSchema {
 
 export interface ApiProductUeruenlerProductUeruenler
   extends Struct.CollectionTypeSchema {
-  collectionName: 'product_ueruenlers';
+  collectionName: 'product_ueruenler';
   info: {
     displayName: 'Product (\u00DCr\u00FCnler)';
     pluralName: 'product-ueruenlers';

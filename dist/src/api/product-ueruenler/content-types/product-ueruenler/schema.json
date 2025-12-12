@@ -1,6 +1,6 @@
 {
     "kind": "collectionType",
-    "collectionName": "product_ueruenlers",
+    "collectionName": "product_ueruenler",
     "info": {
         "singularName": "product-ueruenler",
         "pluralName": "product-ueruenlers",

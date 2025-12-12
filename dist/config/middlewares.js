@@ -3,11 +3,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = [
     'strapi::logger',
     'strapi::errors',
-    'strapi::security',
+    {
+        name: 'strapi::security',
+        config: {
+            contentSecurityPolicy: {
+                useDefaults: true,
+                directives: {
+                    'connect-src': ["'self'", 'https:'],
+                    'img-src': [
+                        "'self'",
+                        'data:',
+                        'blob:',
+                        'dl.airtable.com',
+                        'res.cloudinary.com',
+                    ],
+                    'media-src': [
+                        "'self'",
+                        'data:',
+                        'blob:',
+                        'dl.airtable.com',
+                        'res.cloudinary.com',
+                    ],
+                    upgradeInsecureRequests: null,
+                },
+            },
+        },
+    },
     {
         name: 'strapi::cors',
         config: {
-            enabled: true,
             headers: '*',
             origin: ['*']
         }

@@ -1,5 +1,4 @@
 export default [
-  'strapi::logger',
   'strapi::errors',
   {
     name: 'strapi::security',
@@ -13,7 +12,7 @@ export default [
             'data:',
             'blob:',
             'dl.airtable.com',
-            'res.cloudinary.com', 
+            'res.cloudinary.com', // <-- İŞTE BU SATIR ŞART!
           ],
           'media-src': [
             "'self'",
@@ -27,14 +26,9 @@ export default [
       },
     },
   },
-  {
-    name: 'strapi::cors',
-    config: {
-      headers: '*',
-      origin: ['*'] 
-    }
-  },
+  'strapi::cors',
   'strapi::poweredBy',
+  'strapi::logger',
   'strapi::query',
   'strapi::body',
   'strapi::session',
