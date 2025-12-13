@@ -1,7 +1,0 @@
-/**
- * stock-log controller
- */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreController('api::stock-log.stock-log');

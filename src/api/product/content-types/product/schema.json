@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isim": {
+      "type": "string"
+    },
+    "ref": {
+      "type": "integer"
+    },
+    "aciklama": {
+      "type": "text"
+    },
+    "fotograf": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kategoris": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::kategori.kategori",
+      "mappedBy": "products"
+    }
+  }
+}

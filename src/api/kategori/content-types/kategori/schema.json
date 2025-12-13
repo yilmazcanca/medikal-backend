@@ -11,17 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Baslik": {
-      "type": "string"
-    },
-    "KisaAd": {
-      "type": "string"
-    },
-    "product_ueruenler": {
+    "products": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product-ueruenler.product-ueruenler",
-      "inversedBy": "kategori"
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "kategoris"
     }
   }
 }

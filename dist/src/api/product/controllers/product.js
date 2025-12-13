@@ -1,7 +1,7 @@
 "use strict";
 /**
- * stock-log controller
+ * product controller
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
-exports.default = strapi_1.factories.createCoreController('api::stock-log.stock-log');
+exports.default = strapi_1.factories.createCoreController('api::product.product');

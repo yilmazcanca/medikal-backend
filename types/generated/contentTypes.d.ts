@@ -478,21 +478,16 @@ export interface ApiKategoriKategori extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Baslik: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    KisaAd: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::kategori.kategori'
     > &
       Schema.Attribute.Private;
-    product_ueruenler: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::product-ueruenler.product-ueruenler'
-    >;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -559,47 +554,41 @@ export interface ApiOneCikanOneCikan extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiProductUeruenlerProductUeruenler
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'product_ueruenler';
+export interface ApiProductProduct extends Struct.CollectionTypeSchema {
+  collectionName: 'products';
   info: {
-    displayName: 'Product (\u00DCr\u00FCnler)';
-    pluralName: 'product-ueruenlers';
-    singularName: 'product-ueruenler';
+    displayName: 'Product';
+    pluralName: 'products';
+    singularName: 'product';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Aciklama: Schema.Attribute.Blocks;
-    anasayfadagoster: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    aciklama: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Dosya: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    fotograf: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     isim: Schema.Attribute.String;
-    kategori: Schema.Attribute.Relation<'oneToMany', 'api::kategori.kategori'>;
-    KritikStokSeviyesi: Schema.Attribute.Integer;
+    kategoris: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::kategori.kategori'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::product-ueruenler.product-ueruenler'
+      'api::product.product'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    stock_logs: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::stock-log.stock-log'
-    >;
-    StokSayisi: Schema.Attribute.Integer;
+    ref: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    UrunFotografi: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    UrunKodu: Schema.Attribute.String;
   };
 }
 
@@ -626,41 +615,6 @@ export interface ApiSliderSlider extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Sira: Schema.Attribute.Integer;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStockLogStockLog extends Struct.CollectionTypeSchema {
-  collectionName: 'stock_logs';
-  info: {
-    displayName: 'Stock Log';
-    pluralName: 'stock-logs';
-    singularName: 'stock-log';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Aciklama: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Date: Schema.Attribute.Date;
-    IslemTuru: Schema.Attribute.Enumeration<['Giris', 'Cikis', 'Iade']>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::stock-log.stock-log'
-    > &
-      Schema.Attribute.Private;
-    Miktar: Schema.Attribute.Integer;
-    product_ueruenler: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::product-ueruenler.product-ueruenler'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1181,9 +1135,8 @@ declare module '@strapi/strapi' {
       'api::kategori.kategori': ApiKategoriKategori;
       'api::mesaj.mesaj': ApiMesajMesaj;
       'api::one-cikan.one-cikan': ApiOneCikanOneCikan;
-      'api::product-ueruenler.product-ueruenler': ApiProductUeruenlerProductUeruenler;
+      'api::product.product': ApiProductProduct;
       'api::slider.slider': ApiSliderSlider;
-      'api::stock-log.stock-log': ApiStockLogStockLog;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
