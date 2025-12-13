@@ -1,8 +1,8 @@
 {
   "name": "medikal-panel",
-  "version": "0.1.0",
   "private": true,
-  "description": "A Strapi application",
+  "version": "0.1.0",
+  "description": "Strapi backend",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -16,31 +16,17 @@
     "@strapi/provider-upload-cloudinary": "5.32.0",
     "@strapi/strapi": "5.32.0",
     "pg": "8.11.3",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "typescript": "^5"
-  },
-  "engines": {
-    "node": ">=18.0.0 <=20.x.x",
-    "npm": ">=6.0.0"
-  },
-  "strapi": {
-    "uuid": "4da83f53-c79e-420d-9ee1-4db2df636454",
-    "installId": "c059ee8d80934144d9adaa597b311675e47042359a391333b7e2ff06d93ff1a6"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.22.3",
+    "styled-components": "6.1.8"
   },
   "overrides": {
-    "sharp": "0.32.6"
+    "styled-components": "6.1.8",
+    "react-router-dom": "6.22.3"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   }
-
 }
