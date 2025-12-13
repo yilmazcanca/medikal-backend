@@ -14,9 +14,6 @@
     "isim": {
       "type": "string"
     },
-    "ref": {
-      "type": "integer"
-    },
     "aciklama": {
       "type": "text"
     },
@@ -35,6 +32,9 @@
       "relation": "manyToMany",
       "target": "api::kategori.kategori",
       "mappedBy": "products"
+    },
+    "ref": {
+      "type": "biginteger"
     }
   }
 }
