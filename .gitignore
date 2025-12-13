@@ -13,3 +13,7 @@ build/
 
 # Local Uploads (Cloudinary kullandığımız için bunları göndermiyoruz)
 public/uploads/
+"node_modules/" 
+".env" 
+"build/" 
+".cache/" 
