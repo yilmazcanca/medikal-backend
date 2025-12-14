@@ -4,21 +4,21 @@
     "info": {
         "singularName": "kategori",
         "pluralName": "kategoris",
-        "displayName": "Kategori"
+        "displayName": "Category"
     },
     "options": {
         "draftAndPublish": true
     },
     "pluginOptions": {},
     "attributes": {
-        "products": {
-            "type": "relation",
-            "relation": "manyToMany",
-            "target": "api::product.product",
-            "inversedBy": "kategoris"
-        },
         "isim": {
             "type": "string"
+        },
+        "products": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::product.product",
+            "mappedBy": "category"
         }
     }
 }

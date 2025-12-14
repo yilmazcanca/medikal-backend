@@ -27,14 +27,14 @@
         "audios"
       ]
     },
-    "kategoris": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::kategori.kategori",
-      "mappedBy": "products"
-    },
     "ref": {
       "type": "biginteger"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kategori.kategori",
+      "inversedBy": "products"
     }
   }
 }
