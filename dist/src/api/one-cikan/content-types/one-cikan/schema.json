@@ -29,6 +29,9 @@
         },
         "ButonLink": {
             "type": "string"
+        },
+        "UzunAciklama": {
+            "type": "blocks"
         }
     }
 }
