@@ -35,6 +35,9 @@
             "relation": "manyToOne",
             "target": "api::kategori.kategori",
             "inversedBy": "products"
+        },
+        "anasayfadagoster": {
+            "type": "boolean"
         }
     }
 }

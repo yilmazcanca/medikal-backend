@@ -32,6 +32,16 @@
     },
     "UzunAciklama": {
       "type": "blocks"
+    },
+    "TumFotograflar": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
