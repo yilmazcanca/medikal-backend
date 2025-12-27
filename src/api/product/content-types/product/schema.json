@@ -38,6 +38,9 @@
     },
     "anasayfadagoster": {
       "type": "boolean"
+    },
+    "StokSayisi": {
+      "type": "integer"
     }
   }
 }
