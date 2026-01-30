@@ -1,24 +1,27 @@
-# Node 20 sürümünü baz al (LTS)
+# Resmi Node 20 (Debian tabanlı - en stabil olanı) kullanıyoruz
 FROM node:20
 
-# Çalışma klasörünü ayarla
-WORKDIR /app
+# Çalışma klasörünü oluştur
+WORKDIR /opt/app
 
-# Paket dosyalarını kopyala
-COPY package*.json ./
+# ÖNCE sadece paket dosyalarını kopyala (Cache mantığı için önemli)
+COPY package.json package-lock.json ./
 
-# Bağımlılıkları yükle (Legacy peer deps sorunu için flag ekledik)
-RUN npm install --legacy-peer-deps
+# Node modüllerini sıfırdan, Linux uyumlu ve peer dependency hatalarını yok sayarak kur
+# Sharp modülünü özellikle Linux x64 mimarisine göre rebuild et
+RUN npm config set fetch-retry-maxtimeout 600000 -g && \
+    npm install --legacy-peer-deps && \
+    npm rebuild sharp
 
-# Tüm proje dosyalarını kopyala
+# ŞİMDİ kalan proje dosyalarını kopyala (node_modules hariç - .dockerignore sayesinde)
 COPY . .
 
-# Strapi build işlemini başlat
+# Environment değişkenini ayarla ve Build al
 ENV NODE_ENV=production
 RUN npm run build
 
-# Portu dışarıya aç
+# Portu aç
 EXPOSE 1337
 
-# Uygulamayı başlat
+# Başlat
 CMD ["npm", "run", "start"]
